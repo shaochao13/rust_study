@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="2" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="3" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="1.安装" FOLDED="true" POSITION="right" ID="ID_1565392466" CREATED="1595298242800" MODIFIED="1595300091152">
 <edge COLOR="#ff0000"/>
 <node TEXT="Rustup" ID="ID_1363321364" CREATED="1595298256897" MODIFIED="1595298272693">
@@ -83,7 +83,7 @@
 <node TEXT="&quot;Cargo.toml&quot; 文件为Rust的清单文件。其中包含了项目的元数据和依赖库。" ID="ID_1275357974" CREATED="1595299622640" MODIFIED="1595299653387"/>
 </node>
 </node>
-<node TEXT="2. 基本概念" POSITION="right" ID="ID_270726268" CREATED="1595316367275" MODIFIED="1595316372945">
+<node TEXT="2. 基本概念" FOLDED="true" POSITION="right" ID="ID_270726268" CREATED="1595316367275" MODIFIED="1595316372945">
 <edge COLOR="#0000ff"/>
 <node TEXT="关联函数(::)" FOLDED="true" ID="ID_1171213484" CREATED="1595316377029" MODIFIED="1595316484940">
 <node TEXT="关联函数是针对类型实现的" ID="ID_58886285" CREATED="1595316444034" MODIFIED="1595316445849"/>
@@ -115,7 +115,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="无符号整数(u开头)" ID="ID_1655554396" CREATED="1595383785687" MODIFIED="1595384611315"><richcontent TYPE="DETAILS">
@@ -130,7 +129,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_75267241" CREATED="1595384138894" MODIFIED="1595384630125" MAX_WIDTH="132.74999586492788 pt" MIN_WIDTH="132.74999586492788 pt"><richcontent TYPE="NODE">
@@ -263,7 +261,6 @@
     </table>
   </body>
 </html>
-
 </richcontent>
 <richcontent TYPE="DETAILS">
 
@@ -277,7 +274,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="如果拿不定主意，Rust 的默认类型通常就很好，数字类型默认是 i32：它通常是最快的，甚至在 64 位系统上也是" ID="ID_1726355293" CREATED="1595384817087" MODIFIED="1595384817898"/>
@@ -298,7 +294,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="默认类型是 f64" ID="ID_828068316" CREATED="1595384967557" MODIFIED="1595384978437"/>
@@ -326,7 +321,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="取值方式" ID="ID_290687119" CREATED="1595385743856" MODIFIED="1595385764355">
@@ -348,7 +342,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="使用点号（.）后跟值的索引来直接访问" ID="ID_1588775976" CREATED="1595385791534" MODIFIED="1595385883752"><richcontent TYPE="DETAILS">
@@ -369,7 +362,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -390,7 +382,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <richcontent TYPE="DETAILS">
 
@@ -404,7 +395,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="如果要初始化一个数组，每个元素的值都相同： 初始值 + &quot;;&quot;+数组长度" ID="ID_1428092888" CREATED="1595387311100" MODIFIED="1595387407785"><richcontent TYPE="DETAILS">
@@ -419,12 +409,98 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
 </node>
 </node>
+</node>
+<node TEXT="3. 所有权(ownership)" POSITION="right" ID="ID_276980744" CREATED="1595486632364" MODIFIED="1595509981026">
+<edge COLOR="#00ff00"/>
+<node TEXT="通过所有权系统管理内存，让Rust无需垃圾回收即可保障内存安全。" ID="ID_724128572" CREATED="1595486659397" MODIFIED="1595486788896"/>
+<node TEXT="跟踪哪部分代码正在使用堆上的哪些数据，最大限度的减少堆上的重复数据的数量，以及清理堆上不再使用的数据确保不会耗尽空间，这些问题正是所有权系统要处理的" ID="ID_888072567" CREATED="1595487326153" MODIFIED="1595493423717" HGAP_QUANTITY="16.249999932944775 pt" VSHIFT_QUANTITY="8.249999754130847 pt"/>
+<node TEXT="所有权的存在就是为了管理堆数据" ID="ID_1302213753" CREATED="1595487297994" MODIFIED="1595493425892" HGAP_QUANTITY="14.749999977648258 pt" VSHIFT_QUANTITY="7.499999776482589 pt"/>
+<node TEXT="栈（Stack）与堆（Heap）" ID="ID_13697899" CREATED="1595487348372" MODIFIED="1595493427881" HGAP_QUANTITY="13.250000022351742 pt" VSHIFT_QUANTITY="8.249999754130847 pt">
+<node TEXT="栈中的所有数据都必须占用已知且固定的大小。后进先出。" ID="ID_1264285771" CREATED="1595487357068" MODIFIED="1595487384092"/>
+</node>
+<node TEXT="所有权规则" FOLDED="true" ID="ID_1708189559" CREATED="1595493303531" MODIFIED="1595493434548" VSHIFT_QUANTITY="8.249999754130847 pt">
+<font BOLD="true"/>
+<node TEXT="1. Rust中的每一个值都有一个被称为其所有者(owner)的变量。" ID="ID_1943153158" CREATED="1595493316524" MODIFIED="1595493344493"/>
+<node TEXT="2. 值在任一时刻有且只有一个所有者。" ID="ID_1929520141" CREATED="1595493348137" MODIFIED="1595493431854" VSHIFT_QUANTITY="6.74999979883433 pt"/>
+<node TEXT="3. 当所有者(变量)离开作用域，这个值将被丢弃。" ID="ID_1652901972" CREATED="1595493364719" MODIFIED="1595493434548" HGAP_QUANTITY="12.500000044703482 pt" VSHIFT_QUANTITY="6.74999979883433 pt"/>
+</node>
+<node TEXT="变量与数据交互的方式" FOLDED="true" ID="ID_901474173" CREATED="1595500490277" MODIFIED="1595509981025" VSHIFT_QUANTITY="5.999999821186071 pt">
+<node TEXT="1. 移动" FOLDED="true" ID="ID_1242010288" CREATED="1595500503687" MODIFIED="1595504608898">
+<font BOLD="true"/>
+<node TEXT="Rust 永远也不会自动创建数据的 “深拷贝”" ID="ID_1635728487" CREATED="1595500554897" MODIFIED="1595500556429"/>
+<node TEXT="String 的 from 方法把数值存放在堆中，在栈中存放一个指向存放字符串内容内存的指针、一个长度、和一个容量。" ID="ID_785072682" CREATED="1595500635762" MODIFIED="1595503412770" HGAP_QUANTITY="15.499999955296518 pt" VSHIFT_QUANTITY="11.999999642372142 pt"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <i><font color="#0000c0"><b>let s1 = String::from(&quot;hello&quot;); </b></font></i>
+    </p>
+    <p>
+      <i><font color="#0000c0"><b>let s2 = s1; //此处赋值s2的同时，rust使第一个变量无效。println!(&quot;{}&quot;, s1);//此时因为s1因为上一句对s2赋值时，s1已经无效，所以接下来再对s1进行的引用都是无效的，会报错是。 </b></font></i>
+    </p>
+    <p>
+      但对于值是存储在栈上的，上面的赋值语句，s1是不会失效的。因为此时的复制是高效的。
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="&quot;移动&quot;类似于浅拷贝。" ID="ID_1664195816" CREATED="1595501342588" MODIFIED="1595503418710" HGAP_QUANTITY="16.999999910593036 pt" VSHIFT_QUANTITY="17.249999485909953 pt"/>
+</node>
+<node TEXT="2. 克隆" FOLDED="true" ID="ID_702253224" CREATED="1595500507231" MODIFIED="1595504611585">
+<font BOLD="true"/>
+<node TEXT="如果需要深度复制堆上的数据，而不仅仅是栈上的数据，可以使用一个叫&quot;clone&quot;的通用函数。" ID="ID_237993081" CREATED="1595501370938" MODIFIED="1595501765546"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b><i><font color="#0000c0">let s1 = String::from(&quot;hello&quot;); </font></i></b>
+    </p>
+    <p>
+      <b><i><font color="#0000c0">let s2 = s1.clone();//此时，s2对s1进行&quot;深拷贝&quot; </font></i></b>
+    </p>
+    <p>
+      <b><i><font color="#0000c0">println!(&quot;s1 = {}, s2 = {}&quot;, s1, s2);</font></i></b>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="因为克隆会把堆上的数据进行复制，所以在一些特定的情况下，可能相当消耗资源。" ID="ID_1153130105" CREATED="1595501718428" MODIFIED="1595501750075"/>
+</node>
+<node TEXT="3. 拷贝" FOLDED="true" ID="ID_697764470" CREATED="1595500516804" MODIFIED="1595504614082">
+<font BOLD="true"/>
+<node TEXT="Rust 有一个叫做 Copy trait 的特殊注解，可以用在类似整型这样的存储在栈上的类型上" ID="ID_771077932" CREATED="1595503465114" MODIFIED="1595503532512"/>
+<node TEXT="如果一个类型拥有 Copy trait，一个旧的变量在将其赋值给其他变量后仍然可用" ID="ID_663259754" CREATED="1595503532939" MODIFIED="1595503540477"/>
+<node TEXT="Rust 不允许自身或其任何部分实现了 Drop trait 的类型使用 Copy trait。" ID="ID_930271498" CREATED="1595503574271" MODIFIED="1595503575116"/>
+<node TEXT="如果我们对其值离开作用域时需要特殊处理的类型使用 Copy 注解，将会出现一个编译时错误。" ID="ID_256027253" CREATED="1595503594026" MODIFIED="1595503594792"/>
+<node TEXT="一个通用的规则，任何简单标量值的组合可以是 Copy 的，不需要分配内存或某种形式资源的类型是 Copy 的。" ID="ID_1274970009" CREATED="1595503630240" MODIFIED="1595503630882"/>
+<node TEXT="一些 Copy 的类型" ID="ID_1224095491" CREATED="1595503683441" MODIFIED="1595503684824">
+<node TEXT="1. 所有整数类型" ID="ID_1155721100" CREATED="1595503685421" MODIFIED="1595503701430"/>
+<node TEXT="2. 布尔类型bool" ID="ID_884584285" CREATED="1595503701789" MODIFIED="1595503710688"/>
+<node TEXT="3. 所有浮点数类型" ID="ID_1275243047" CREATED="1595503711017" MODIFIED="1595503718744"/>
+<node TEXT="4. 字符类型char" ID="ID_1242361601" CREATED="1595503719092" MODIFIED="1595503724897"/>
+<node TEXT="5. 元组，当且仅当其包含的类型也都是Copy的时候。比如，(i32, i32) 是 Copy 的，但 (i32, String) 就不是。" ID="ID_501061093" CREATED="1595503725830" MODIFIED="1595503778264">
+<font BOLD="true"/>
+</node>
+</node>
+</node>
+</node>
+<node TEXT="将值传递给函数在语义上与给变量赋值相似。向函数传递值可能会移动或者复制，就像赋值语句一样。" ID="ID_803426169" CREATED="1595508014676" MODIFIED="1595509979653" HGAP_QUANTITY="15.499999955296518 pt" VSHIFT_QUANTITY="5.999999821186071 pt"/>
+<node TEXT="变量的所有权总是遵循相同的模式：将值赋给另一个变量时移动它。当持有堆中数据值的变量离开作用域时，其值将通过 drop 被清理掉，除非数据被移动为另一个变量所有。" ID="ID_1711557602" CREATED="1595509972768" MODIFIED="1595509978265" HGAP_QUANTITY="13.250000022351742 pt" VSHIFT_QUANTITY="6.74999979883433 pt"/>
 </node>
 </node>
 </map>
